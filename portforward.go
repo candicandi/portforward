@@ -1,6 +1,5 @@
-// Package portward listens a port and forward to another port. It also provides a channel
+// Package portforward listens a port and forward to another port. It also provides a channel
 // that caller can stop forwarding when needed.
-
 package portforward
 
 import (
@@ -12,7 +11,17 @@ import (
 	log "github.com/Sirupsen/logrus"
 )
 
-// PortForward forward listen port to forward port.
+// PortForward forwards traffic from listenHost to forwardHost. It returns a stop channel
+// to be used when stopping forwarding, and error if any.
+//  // Forward port 8080 to port 80.
+//  stop, err := PortForward(":8080", ":80")
+//  if err != nil {
+// 	  return err
+//  }
+//  // Now port 8080 is forwarded to port 80.
+//
+//  // Stop the portforwarding.
+//  close(stop)
 func PortForward(listenHost, forwardHost string) (chan struct{}, error) {
 	// Listen to incoming port
 	listener, err := net.Listen("tcp", listenHost)
