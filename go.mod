@@ -1,4 +1,4 @@
-module github.com/csigo/portforward
+module github.com/17media/portforward
 
 go 1.13
 
