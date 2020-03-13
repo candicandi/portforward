@@ -8,7 +8,7 @@ import (
 	"net"
 	"sync"
 
-	log "github.com/Sirupsen/logrus"
+	log "github.com/sirupsen/logrus"
 )
 
 // PortForward forwards traffic from listenHost to forwardHost. It returns a stop channel

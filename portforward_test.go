@@ -87,7 +87,7 @@ func echoTcpServer(hostPort string) {
 		// Listen for an incoming connection.
 		conn, err := l.Accept()
 		if err != nil {
-			panic(fmt.Sprintf("Error accepting: ", err.Error()))
+			panic(fmt.Sprintf("Error accepting: %s", err.Error()))
 		}
 
 		// Make a buffer to hold incoming data.
